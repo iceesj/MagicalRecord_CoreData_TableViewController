@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Events" representedClassName="Events" syncable="YES">
+        <attribute name="event_Des" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="event_fangfa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="event_fangfaIMG" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="event_subtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="event_title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="smallThing" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SmallThing" inverseName="oneEvent" inverseEntity="SmallThing" syncable="YES"/>
+        <relationship name="whoDo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="events" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Events" inverseName="whoDo" inverseEntity="Events" syncable="YES"/>
+    </entity>
+    <entity name="SmallThing" representedClassName="SmallThing" syncable="YES">
+        <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="oneEvent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Events" inverseName="smallThing" inverseEntity="Events" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Events" positionX="-855" positionY="-45" width="128" height="163"/>
+        <element name="Person" positionX="-1019" positionY="77" width="128" height="103"/>
+        <element name="SmallThing" positionX="-648" positionY="68" width="128" height="103"/>
+    </elements>
+</model>
